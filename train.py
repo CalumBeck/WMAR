@@ -51,29 +51,29 @@ if __name__ == "__main__":
         ac_train_steps=800,
         ac_train_sync=128,
         fresh_ac=False,
-        n_sync=4,
-        gen_seq_len=4096,
+        n_sync=4,  
+        gen_seq_len=1024,  # Reduced from 4096
         env_repeat=4,
-        data_n=32,
-        data_n_max=512,
-        data_t=512,
-        mb_t_size=32,
-        mb_n_size=16,
+        data_n=16,        # Corrected: (n_sync * gen_seq_len) / data_t = (4 * 1024) / 256 = 16
+        data_n_max=256,   # Reduced from 512 (capacity in sequences)
+        data_t=256,       # Reduced from 512 (sequence length in buffer)
+        mb_t_size=32,     
+        mb_n_size=16,     
         random_policy="first",
-        pretrain_enabled=False,
+        pretrain_enabled=False, 
         pretrain_data_multiplier=4,
         pretrain_mb_t_size=8,
         pretrain_mb_n_size=16,
         pretrain_steps=30_000,
-        gru_units=512,
-        cnn_depth=32,
-        mlp_features=512,
+        gru_units=256,       # Reduced from 512
+        cnn_depth=32,        
+        mlp_features=256,    # Reduced from 512
         mlp_layers=2,
         wall_time_optimisation=False,
         action_space=18,
         replay_buffers=[
-            RbConfig(replay.FifoReplay, "cuda"),
-            RbConfig(replay.LongTermReplay, "cuda"),
+            RbConfig(replay.FifoReplay, "cpu"),  # Changed to "cpu"
+            RbConfig(replay.LongTermReplay, "cpu"), # Changed to "cpu"
         ],
     )
     config = config if config is not None else default_config
