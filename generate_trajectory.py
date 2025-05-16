@@ -8,7 +8,7 @@ import torch.distributions as td
 from gymnasium.vector import AsyncVectorEnv
 from gymnasium.wrappers import AtariPreprocessing
 from tqdm import tqdm
-
+import ale_py
 from ac import ActorCritic, zh_to_ac_state
 from rssm import ActionT, ContT, ImageT, ResetT
 from wm import RewardT, WorldModel
