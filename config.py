@@ -5,7 +5,7 @@ from typing import Any, Callable, Literal, Type, TypeVar, Union
 
 import gymnasium as gym
 from gymnasium.wrappers import TransformReward
-
+import ale_py
 import generate_trajectory
 import replay
 from generate_trajectory import EnvironmentSchedule
