@@ -1,4 +1,3 @@
-gymnasium==0.26.2
 numpy==1.24.3
 torch==1.12.1
 torchvision==0.13.1
@@ -7,3 +6,4 @@ matplotlib==3.7.1
 tqdm
 sortedcontainers
 tensorboard
+gymnasium[atari,accept-rom-license]
